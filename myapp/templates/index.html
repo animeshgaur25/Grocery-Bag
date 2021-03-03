@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>View List</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <!-- top -->
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>View Grocery List</h1>
+        </div>
+        <div class="col-lg-6 float-right">
+          <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-8">
+                <!-- Date Filtering-->
+                <input type="date" name="date" class="form-control" />
+              </div>
+              <div class="col-lg-4">
+                <input type="submit" class="btn btn-danger" value="filter" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- // top -->
+      <!-- Grocery Cards -->
+      <div class="row mt-4">
+        <!--- -->
+        <!-- Loop This -->
+        {% for grocery in GroceryList %}
+
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ grocery.ItemName }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ grocery.ItemQuantity }} Pcs.
+              </h6>
+              <p class="text-success">{{ grocery.ItemStatus }}</p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+        <!-- // Loop -->
+      </div>
+    </div>
+  </body>
+</html>
