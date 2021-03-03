@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'GroceryBag.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
-        'USER': 'postgres',
-        'PASSWORD': 'bits123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': 'KineticFanatic',
+        'PASSWORD': 'bits1234',
+        'HOST': 'KineticFanatic.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
 
